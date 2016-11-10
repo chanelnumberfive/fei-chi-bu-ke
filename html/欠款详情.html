@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+<title>非吃不可账单</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="非吃不可账单">
+
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+<!-- no cache -->
+<meta http-equiv="cache-control" content="max-age=0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
+<meta http-equiv="pragma" content="no-cache">
+<script type="application/javascript" src="../js/fastclick.js"></script> 
+<script type="application/javascript">
+	function setFontSize(){
+        document.documentElement.style.fontSize=20*Math.sqrt(window.innerWidth/320)+'px';
+    }
+    setFontSize();
+    window.addEventListener('resize',function(){
+        setFontSize();
+    });
+    window.addEventListener('load', function () {
+		FastClick.attach(document.body);
+	}, false);
+</script>
+<link rel="stylesheet" href="../css/weui.min.css">
+<link rel="stylesheet" href="../css/fei-chi-bu-ke.css">
+</head>
+
+<body ontouchstart="">
+<div class="fcbk-zhangdan">
+	<header class="model-zhaiyao glb-border-bottom" style="padding-bottom:.5rem;">
+    	<h1 class="glb-for-screen title">非吃不可账单</h1>
+        <p class="mzy-para">
+        	<span class="mzy-para-name">10月欠款金额</span>
+            <span class="mzy-para-price">200.00<small>元</small></span>
+        </p>
+    </header>
+    
+    <section class="model-zhaiyao glb-border-top">
+    	<h1 class="glb-for-screen title">非吃不可账单</h1>
+        <p class="mzy-para">
+        	<span class="mzy-para-name">【认臻生态】盘锦大洼大米</span>
+            <span class="mzy-para-price">200.00<small>元</small></span>
+            <span class="mzy-para-date">2016-10-15已签收</span>
+        </p>
+    </section>
+    
+    <section class="mf-section">
+    	<div class="mf-sect-body">
+        	<div class="weui_cells weui_cells_form"> 
+                <div href="javascript:void(0);" class="weui_cell">
+                    <div class="weui_cell_hd weui_cell_primary">
+                        <label for="" class="weui_label">交易编号</label>
+                    </div>
+                    <div class="weui_cell_bd">
+                        <input class="weui_input" value="123456789654321" readonly>
+                    </div>
+                    <div class="weui_cell_ft">
+                        <i class="weui_icon_warn"></i>
+                    </div>
+                </div>
+                
+                <div href="javascript:void(0);" class="weui_cell">
+                    <div class="weui_cell_hd weui_cell_primary">
+                        <label for="" class="weui_label">入账时间</label>
+                    </div>
+                    <div class="weui_cell_bd">
+                        <input class="weui_input" value="2016-10-26 16:45:34" readonly>
+                    </div>
+                    <div class="weui_cell_ft">
+                        <i class="weui_icon_warn"></i>
+                    </div>
+                </div>
+                
+                <div href="javascript:void(0);" class="weui_cell">
+                    <div class="weui_cell_hd weui_cell_primary">
+                        <label for="" class="weui_label">最后还款日</label>
+                    </div>
+                    <div class="weui_cell_bd">
+                        <input class="weui_input" value="2016-12-31" readonly>
+                    </div>
+                    <div class="weui_cell_ft">
+                        <i class="weui_icon_warn"></i>
+                    </div>
+                </div>
+                
+                <a href="javascript:void(0);" class="weui_cell weui_cell_select weui_select_after">
+                    <div class="weui_cell_hd weui_cell_primary">
+                        <label for="" class="weui_label">对应物流信息</label>
+                    </div>
+                    <div class="weui_cell_bd">
+                        <input class="weui_input" value="123456789654321" readonly>
+                    </div>
+                    <div class="weui_cell_ft">
+                        <i class="weui_icon_warn"></i>
+                    </div>
+                </a>
+                
+                <a href="javascript:void(0);" class="weui_cell weui_cell_select weui_select_after">
+                    <div class="weui_cell_hd weui_cell_primary">
+                        <label for="" class="weui_label">对应商品订单</label>
+                    </div>
+                    <div class="weui_cell_bd">
+                        <input class="weui_input" value="123456789654321" readonly>
+                    </div>
+                    <div class="weui_cell_ft">
+                        <i class="weui_icon_warn"></i>
+                    </div>
+                </a>
+            </div>  
+        </div>
+    </section>
+</div>
+</body>
+<script type="application/javascript" src="../js/jquery-3.1.1.js"></script>
+<script type="application/javascript" src="../js/checkcard.js"></script>
+<script type="application/javascript" src="../js/fei-chi-bu-ke.js"></script>
+<script type="application/javascript">
+    +function($){
+        $('form').check({
+	        getVerificationCode:function($elem){
+                
+            }
+	    });
+    }(window.jQuery);
+</script>
+</html>

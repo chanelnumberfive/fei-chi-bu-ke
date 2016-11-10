@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+<title>非吃不可</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="非吃不可">
+
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+<!-- no cache -->
+<meta http-equiv="cache-control" content="max-age=0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
+<meta http-equiv="pragma" content="no-cache">
+<script type="application/javascript" src="../js/fastclick.js"></script> 
+<script type="application/javascript">
+	function setFontSize(){
+        document.documentElement.style.fontSize=20*Math.sqrt(window.innerWidth/320)+'px';
+    }
+    setFontSize();
+    window.addEventListener('resize',function(){
+        setFontSize();
+    });
+    window.addEventListener('load', function () {
+		FastClick.attach(document.body);
+	}, false);
+</script>
+<link rel="stylesheet" href="../css/weui.min.css">
+<link rel="stylesheet" href="../css/fei-chi-bu-ke.css">
+</head>
+
+<body ontouchstart="">
+<article class="fcbk-xieyi">
+	<h1 class="glb-title glb-text-center">非吃不可签单权协议</h1>
+    <ul class="glb-para glb-grey">
+    	<li>1、甲方不能提供乙方消费之有效单据乙方有权拒付；</li>
+ 		<li>2、甲方不能提供结算款项全额之发票乙方有权拒绝付款；</li>
+		<li>3、乙方在接到甲方通知后不能在双方约定时间内付款，每逾期一日乙方同意按应结算款项的
+5‰向甲方支付违约金；</li> 
+		<li>4、乙方不能正常支付应结算款甲方有权单方面终止本协议，并在正常催收应收款项情况下按本协议(第七条第3款)之约定收取违约金；</li> 
+ 		<li>5、乙方在接到甲方书面通知一个月后仍未付清欠款及违约金，甲方有权通过法律形式对其拥有之债权进行追索；</li> 
+ 		<li>6、乙方同意在任何情况下，乙方对所欠甲方之债务优先赔偿，换言之，就是当乙方进入破产清算程序时，甲方拥有对乙方的优先索赔权；</li>  
+		<li>7、本协议未尽事宜，双方协商解决，如不能解决可诉至签约地人民法院。</li> 
+ 		<li>8、本协议一式两份，双方各持一份，具同等效力。双方同意本协议不经公正可作为有效法律证</li>
+        <li style="margin-top:1.5rem">本协议自双方签字盖章之日起生效</li>
+ 	</ul>
+    
+    <form class="model-form">
+        <div class="fcbk-xieyi-sign glb-text-center">
+            <h2 class="glb-title">请在空白处签上你的姓名</h2>
+            <canvas id="canvas" width="320" height="80"></canvas>
+            <p class="glb-para-xm glb-grey">此签名用于比对签单签名以确保本人操作</p>
+        </div>
+        <div class="model-btn-area" style="margin-top:.5rem;">
+            <input type="submit" class="model-btn success">
+        </div>
+    </form>
+</article>
+</body>
+<script type="application/javascript" src="../js/jquery-3.1.1.js"></script>
+<script type="application/javascript" src="../js/fei-chi-bu-ke.js"></script>
+<script type="application/javascript">
++function(){
+	'use strict';
+	
+	$('.model-form').check({
+		canSubmit:function(event){
+			$.weui.loading('提交数据中');
+			$.ajax({
+				url:'http://192.168.1.137:8080/my-project/fei-chi-bu-ke/',
+				async:false,
+				data:document.querySelector('#canvas').toDataURL(),
+				success:function(data){
+					event.preventDefault();
+					$.weui.loading().hide();
+				},
+				error:function(){
+					
+					// 提交数据失败阻止默认表单事件
+					event.preventDefaut();
+					$.weui.loading().hide();
+					$.weui.alert({
+						title:'温馨提示',
+						article:'服务器繁忙，请稍后尝试'
+					});
+				}
+			})
+		}
+	});
+}();
+</script>
+</html>
