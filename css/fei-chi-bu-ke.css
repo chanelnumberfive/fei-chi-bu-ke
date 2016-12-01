@@ -70,6 +70,9 @@ small {
 big {
 	font-size:120%;
 }
+h1,h2,h3,h4,strong {
+	font-weight:normal;
+}
 /*
  * 修复页面效果不按照指定样式渲染的bug
  */
@@ -173,6 +176,11 @@ big {
 	left:0;
 	bottom:2.5rem;
 	z-index:1001;
+}
+.weui_toast {
+	margin-left:auto;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
 }
 
 /*
@@ -345,6 +353,44 @@ big {
 }
 .glb-pr {
 	position:relative;
+}
+
+.glb-font-18 {
+	font-size:.9rem;
+}
+.glb-font-15 {
+	font-size:.75rem;
+}
+.glb-font-16 {
+	font-size:.8rem;
+}
+.glb-font-14-6,
+.glb-font-14 {
+	font-size:.7rem;
+}
+.glb-font-12-9,
+.glb-font-12 {
+	font-size:.6rem;
+}
+.glb-font-10 {
+	font-size:.5rem !important;
+}
+.glb-color-red {
+	color:#ff7200;
+}
+.glb-font-14-6,
+.glb-color-6 {
+	color:#666;
+}
+.glb-font-12-9,
+.glb-color-9 {
+	color:#999;
+}
+.glb-color-0 {
+	color:#000;
+}
+.glb-color-green {
+	color:#49a57b;
 }
 
 
@@ -1123,6 +1169,37 @@ a.weui_cell:active {
 }
 
 /*
+ * model-qiangoudan
+ */
+.model-qiangoudan {
+	pointer-events: none;
+	background-color:#fff;
+	padding: 1rem .5rem .65rem .5rem;
+	background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkQAAAASCAMAAACNdjGrAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAARnQU1BAACxjwv8YQUAAAABc1JHQgCuzhzpAAAAOVBMVEX////x8fH9/f3z8/Pv7+/w8PD7+/vt7e3u7u7+/v78/Pzy8vL09PT39/f5+fn29vb4+Pj6+vr19fXSzBLUAAADJ0lEQVRo3u2W3bKjIBCEg4CAKBre/2E32TpmnR+nK+dqL5hbzEh3f23l8RgzZsyYMWPGjBkzZsyYMf/1zGvMOa7z3XnZXE6hbuXugad/L+jL3fm0/11w3N6gvRYEd79g6S7k6NvtDY8aUnb7BCQ+7yXWnLIlEXh0SiyWRMujl8TXgnuJDyRx6e8XeEvie8G9RISBNZNPP1P1C2755zzrChd3LvD6BffzPOgK53g+0NUFZT3Po66whfOGO5Koh3h8JOqgLxVJPBeEBiSuusQOJD5PiUmXWD4SnS6xfSRuv8PA/Aydy9/7NQH+33nqmrzLgqC8v7jLAk3AcTl3isVTvDzQLEjfDigLlgAkrpcFK/AoKBmVelmghdwu5xF5pHG8IY+uErWq9ssC/xsMrFkuP379fDEZ0hyayblCUSUPHKbBmkMlkgeepsGaQ1eDVYkrWbCaBqsSqUeyKE9yHovJkFaUg5xXCSGRmGazZ5pHEANzaEIp2teXGbLrS4E7W8DvN+VkZ0gTSnkyKVYydMnOsLEFDUh0NsUyQy7R2xRLiQt7wW4XNYViUqxUGWFgDtfPIyhMv1jfkx3BxM+dzYiIgOsXlDH9IgJeAxEBYyQFUAMegfDI2YyIJvIaCMpqspvIayD+dgiPyncY2MMN5A6K7QwSYSB3UEDGIFkScFAYmCYbMg4JN5A7KCBjkEiJEUDGIBE94p9r0SMGiYCMF8kBiQIyDgnCwByZADMgAgMkZMyADAyQkKViJ8AgkQkEkACDRCTAeiAhYz0IoAcSMtqDIs+7/SVLGRSRQSKLGL/DwBx5PZqxEmEG16MZKxEGQCn91ikROkApxVih1IMIKcYeZLwgjxzAWH4nWMYBYKw0uSKJ0zcY2ONARIo+ev8MItrB/TV9HehLIEJawwowVlpIaxhARArmFOMEIuoAY6XJtKkeYKw0mTYVYWBPBq/XGDgAAw4xMAMGPGCAUNgQhQFQuCEKE6Cwg4g0BipggFA4IwodoPBAFCIM7EnA4Q4gmpDDHvR8Rg474HBDDmfg8AYc1nqSUU8a6IlDPZnBt9KjnkwAov4NBp/5AxKoY2hzGlX6AAAAAElFTkSuQmCC),url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkQAAAASCAMAAACNdjGrAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAARnQU1BAACxjwv8YQUAAAABc1JHQgCuzhzpAAAAOVBMVEX////7+/v29vb09PTu7u79/f3v7+/t7e319fX+/v78/Pz5+fn39/f4+Pjy8vLw8PD6+vrx8fHz8/PGyFTcAAADGElEQVRo3u2XzZKlIAyF5XdARMH3f9jpW+2tCyHmjN2bWZBtqOg5+RJ0WZiwf8Zo84HJ5ybvmPzRFjiZA6XJKya/twUqc2Bt8onJm7aAZw7EJr8x+a3JRybv2wcY5kBq8iuTr22BnTmgmnxh8mdb4GAOuCafmXx4goEcHhi0AYMWZFAABjlk0A4Y4BzWwGG7AIczcLibEw3mJKI5MYCBFTFQAQMJzAnEQI4d6CtgD3AtMqhFEbRIAwo7BhzC/ASYK4A516ITtcgBiQFQ2EmMCHMDMF8B5hADOTRoYUSIGqDPgRZy768Axl0LOYwjWKYBXOldCzmMt0cenaCFCrWwAkoTmGRu08QnGMixgkXD9Lh/vbHHNoIe96+XQQeilRcN0+OeUgcoZXrcU6pAC5ke95Qm5JGXB5GZgwN5VMCo788weHifkTVWUPVDhmyExDpgAJmBAG5rByAbIek7wECigMQeMgYSB748A7gPCGTOiquQgeRAu6I8w0AOBQwcxowYODhIGBkdpHuSjpmPi+xgXmQHD7RtCxgkamBBU3rIczQMEvUoepmRgTLoEZmjYZDqUwzkCOKMfLWgfz9PGaHvR/XTFhxxkTGl+mkLhhmhLVDgw2+QSFowjAHFVINJ9BHsezoGdBLrIPGQx4BO4jlI7D2y61MMnlxozBbrBNqR0FilIaQQ+PGu7QVqwPkIIeE8jQU6zutYoMgdIhJP5NEosYcggB+ccVCX1YsQEs4ZiQp5tP/4MqPPN1y+fJ7vuS0Xd0Bw/hQ4uO81V4VFRiyujvs9+FhsE5B4Ru5S90DiCSQmK41JjyH737MBie6Doc3gRtmBRFt+ggGIcr3gkfi8M98W2RD5A/kqUG9u0vXqgdc3BbZL4X7zT6AuTn3m8zFcTTzdjcT6jxLNTYEEJLpL4r1Hb4l3Hr0lbjcS9VXgvPPoLRF4dCsRYQD/9LcQNuGnLiZtdIrC9/mrgLvPuxyMLhLIW9BZLKDDJn3tFW1CjkCi+q1EySMk8VVAlhiC7NFLolTgtxIRBjNmzJgxY8aMGTNmzJgx4/+Iv5pKYLY7gZ0NAAAAAElFTkSuQmCC);
+	background-position: left bottom,left top;
+	background-repeat: no-repeat,no-repeat;
+	background-size:100% auto,100% auto;
+}
+.model-qgd-item {
+	padding:.5rem .25rem;
+	background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAABCAYAAADn9T9+AAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAB9JREFUCJljmD977n9+Nu7/fKxc//lYuf63NbX8xwYA2CwcpQd1CIcAAAAASUVORK5CYII=) left top repeat-x;
+	background-size: .25rem .05rem;
+}
+.model-qiangoudan .glb-font-14 {
+	margin-bottom:.5rem;
+}
+.model-qgd-item li{
+	padding:.05rem 0;
+}
+.model-qgd-item th {
+	padding:0 0 1em 0;
+	color:#999;
+}
+.model-qgd-item td{
+	padding:0;
+}
+
+/*
  * fcbk-jieshaoye
  */
 .fcbk-jieshaoye {
@@ -1251,16 +1328,26 @@ a.weui_cell:active {
 }
 .fcbk-xieyi .model-form {
 	margin:1.5rem -15px 0 -15px;
-	padding-top:.5rem;
 	padding-bottom:.75rem;
 	background-color:#fff;
 }
 .fcbk-xieyi-sign {
 	background-color:#fff;
 }
-#canvas {
-	height:4rem;
+.fcbk-xieyi-sign-title {
+	line-height:3.25rem;
+	text-align: left;
+	padding-left: 15px;
+}
+#canvas1 {
 	width:100%
+}
+#canvas-clear {
+	height:2rem;
+	width: 3.25rem;
+	background: url(../images/canvas-clear.png) no-repeat center center;
+	background-size:1.625rem 0.95rem;
+	border:0;
 }
 
 /*
@@ -1373,6 +1460,10 @@ a.weui_cell:active {
 .wddd-qgd-image {
 	width:100%;
 }
+#canvas1 {
+	display:block;
+	width: 100%;
+}
 
 /*
  * fcbk-wuliuxiangqing
@@ -1470,7 +1561,7 @@ a.weui_cell:active {
 }
 .qdqr-qiandan {
 	margin-top:.75rem;
-	padding:.5rem 0 .75rem 0;
+	padding:0 0 .75rem 0;
 	background-color:#fff;
 }
 

@@ -42,7 +42,26 @@
 <div class="fcbk-wodedingdan">
     
     <section class="wddd-qiangoudan" style="margin:.75rem 0;">
-    	<img class="wddd-qgd-image" src="" data-src="../images/wddd-qgd-image.png" alt="签购单">
+		<div class="model-qiangoudan">
+			<h2 class="glb-font-14 glb-text-center">大米B分期采购单<span class="glb-font-10 glb-color-9"><br>采购人存根</span></h2>
+			<ul class="glb-font-12 model-qgd-item">
+				<li class="layout-tr"><span class="layout-td glb-color-9">签单时间</span>2016-10-19 15:32</li>
+				<li class="layout-tr"><span class="layout-td glb-color-9">订单编号</span>123456789</li>
+			</ul>
+			<ul class="glb-font-12 model-qgd-item">
+				<li class="layout-tr"><span class="layout-td glb-color-9">商品名称</span>【认臻生态】盘锦大洼大米</li>
+				<li class="layout-tr"><span class="layout-td glb-color-9">商品单价</span>20.00元/斤</li>
+				<li class="layout-tr"><span class="layout-td glb-color-9">发货方案</span>10斤/月、全年12个月共发货120斤</li>
+				<li class="layout-tr"><span class="layout-td glb-color-9">首次发货日期</span>2010-10-20</li>
+				<li class="layout-tr"><span class="layout-td glb-color-9 glb-font-10">商品由<span class="glb-color-0">认臻农业</span>从<span class="glb-color-0">辽宁盘锦1号仓库</span>发货并提供售后服务</span></li>
+				<li class="layout-tr"><span class="glb-font-18 glb-color-red layout-td glb-text-right">合计：2400元</span></li>
+			</ul>
+			<div class="glb-text-center model-qgd-item">
+				<div style="background:url(../images/model-qgd-sign.png) no-repeat;height:43.75%;background-size:100% auto;"></div>
+				<p class="glb-font-10 glb-color-9">本人确认以上交易同意计入大米B分期账单</p>
+			</div>	
+		</div>
+    	<img class="wddd-qgd-image" src="" alt="签购单" style="display: none;">
     </section>
     
     <div class="model-btn-area layout-tr">
@@ -55,6 +74,32 @@
     </div>
 </div>
 </body>
-<script type="application/javascript" src="../js/jquery-3.1.1.js"></script>
-<script type="application/javascript" src="../js/fei-chi-bu-ke.js"></script>
+	<script type="application/javascript" src="../js/html2canvas.min.js"></script>
+	<script type="application/javascript" src="../js/jquery-3.1.1.js"></script>
+	<script type="application/javascript" src="../js/fei-chi-bu-ke.js"></script>
+	<script type="application/javascript">
+		window.addEventListener('load',function(){
+			'use strict';
+			
+			var elem=document.querySelector('.model-qiangoudan');
+			try{
+				html2canvas(elem,{
+					onrendered:function(canvas) {
+						var elem1=document.querySelector('.wddd-qgd-image');
+						var data=canvas.toDataURL("image/png");
+						elem1.src=data;
+						elem1.style.display='block';
+						elem.style.display='none';
+					}
+				});
+				$('.model-btn.success').eq(0).on('click',function(){
+					$.weui.tip('请长按图片保存存根');
+				});
+			}catch(e){
+				$('.model-btn.success').eq(0).on('click',function(){
+					$.weui.tip('您的系统版本过低<br>请截屏保存存根');
+				});
+			}
+		},false);
+	</script>
 </html>

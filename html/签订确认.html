@@ -48,7 +48,7 @@
                     <label for="" class="weui_label">2016-10-20</label>
                 </div>
                 <div class="weui_cell_bd">
-                    <input class="weui_input" value="" readonly="">
+                    <input class="weui_input" value="" readonly>
                 </div>
                 <div class="weui_cell_ft">
                     <i class="weui_icon_warn"></i>
@@ -80,12 +80,15 @@
     </section>
     <section class="qdqr-qiandan glb-border-bottom glb-border-top">
         <div class="fcbk-xieyi-sign glb-text-center">
-            <h2 class="glb-title">请在空白处签上你的姓名</h2>
-            <canvas id="canvas" width="320" height="80"></canvas>
-            <p class="glb-para-xm glb-grey">本人确认以上交易同意签入非吃不可账单</p>
+        	<div class="layout-tr glb-border-bottom">
+				<h2 class="glb-title fcbk-xieyi-sign-title layout-td">请在空白处签上你的姓名</h2>
+				<button type="button" id="canvas-clear" class="glb-border-left" aria-label="清除画布"></button>
+			</div>
+            <canvas id="canvas1" width="320" height="140" aria-label="您可以在此处签上你的名字"></canvas>
+            <p class="glb-para-xm glb-grey">此签名用于比对签单签名以确保本人操作</p>
         </div>
         <div class="model-btn-area" style="margin-top:.5rem;">
-            <input type="submit" class="model-btn success" value="签单">
+            <input type="submit" class="model-btn success">
         </div>
    </section>     
 </form>
@@ -93,4 +96,82 @@
 </body>
 <script type="application/javascript" src="../js/jquery-3.1.1.js"></script>
 <script type="application/javascript" src="../js/fei-chi-bu-ke.js"></script>
+<script type="application/javascript">
++function(){
+	'use strict';
+	
+	$('.model-form').check({
+		canSubmit:function(event){
+			$.weui.loading('提交数据中');
+			$.ajax({
+				url:'http://192.168.1.137:8080/my-project/fei-chi-bu-ke/',
+				async:false,
+				data:document.querySelector('#canvas1').toDataURL(),
+				success:function(data){
+					
+					$.weui.loading().hide();
+				},
+				error:function(){
+					
+					// 提交数据失败阻止默认表单事件
+					event.preventDefaut();
+					$.weui.loading().hide();
+					$.weui.alert({
+						title:'温馨提示',
+						article:'服务器繁忙，请稍后尝试'
+					});
+				}
+			})
+		}
+	});
+	
+	// 签字
+	var canvas1=document.getElementById('canvas1');
+	var p=canvas1.getContext('2d');
+	var x1,y1,x2,y2,top,pen=false,eraser=false;
+	var bodyWidth=document.getElementsByTagName('body');
+	var proportion=window.innerWidth/320;
+	function penDown(event)
+	{
+		event=event.touches[0];
+		top=canvas1.getBoundingClientRect().top+window.scrollY;
+		p.save();
+		p.lineWidth=5;
+		p.lineCap="round";
+		pen=true;
+		eraser=false;
+		p.beginPath();
+		p.strokeStyle='#000';
+		x1=event.pageX/proportion;
+		y1=(event.pageY-top)/proportion;
+		p.moveTo(x1,y1);
+	}
+	function penMove(event)
+	{
+		event.preventDefault();
+		event=event.touches[0];
+		if(pen===true)
+		{
+		x2=event.pageX/proportion;
+		y2=(event.pageY-top)/proportion;
+		p.lineTo(x2,y2);
+		p.stroke();
+		}
+	}
+	function penUp()
+	{
+		pen=false;
+		p.restore();
+	}
+	function fn_eraser(event)
+	{
+		p.clearRect(0,0,canvas1.width,canvas1.height);
+	}
+	canvas1.addEventListener('touchstart',penDown);
+	document.querySelector('#canvas-clear').addEventListener('click',fn_eraser);
+	canvas1.addEventListener('touchmove',penMove);
+	//canvas1.addEventListener('mouseup',penUp);
+	document.addEventListener('touchend',penUp);
+}();
+</script>
 </html>
