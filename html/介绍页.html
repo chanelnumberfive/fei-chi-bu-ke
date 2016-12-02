@@ -36,25 +36,76 @@
 </script>
 <link rel="stylesheet" href="../css/weui.min.css">
 <link rel="stylesheet" href="../css/fei-chi-bu-ke.css">
+	<style>
+		.model-btn-area .plain{
+			animation-delay:5s !important;			
+		}
+		.model-btn-area .warn{
+			animation-delay:6s !important;			
+		}
+	</style>
 </head>
 
-<body ontouchstart="">
+<body ontouchstart="" style="width:100%; overflow: hidden;">
+<!--loading cartoon-->
+<div class=" glb-full-screen layout-tr-center" id="loading-1" style="background-color:#fff;">
+	<div class="loader_cogs">
+		<div class="loader_cogs__top">
+		  <div class="top_part"></div>
+		  <div class="top_part"></div>
+		  <div class="top_part"></div>
+		  <div class="top_hole"></div>
+		</div>
+		<div class="loader_cogs__left">
+		  <div class="left_part"></div>
+		  <div class="left_part"></div>
+		  <div class="left_part"></div>
+		  <div class="left_hole"></div>
+		</div>
+		<div class="loader_cogs__bottom">
+		  <div class="bottom_part"></div>
+		  <div class="bottom_part"></div>
+		  <div class="bottom_part"></div>
+		  <div class="bottom_hole"><!-- lol --></div>
+		</div>
+		<p style="text-align:center;">加载中...</p>
+	</div>
+</div>
 <article class="fcbk-jieshaoye">
 	<header class="glb-for-screen">
     	<h1>非吃不可</h1>
         <p>签单吃米！年底结账！品味生活！非吃不可！</p>
     </header>
+	<div class="fcbk-jsy-content glb-pr">
+		<img class="fadein-up" src="../images/fcbk-jsy-1.png">
+		<img class="fadein-left" src="../images/fcbk-jsy-2.png">
+		<div class="fcbk-jsy-image-3">
+			<img class="rotate-to-left" src="../images/fcbk-jsy-3.png">
+			<img id="wheat-sweep" class="sweep-off delay-30" src="../images/fcbk-jsy-3.png">
+		</div>
+	</div>
     <section class="layout-tr model-btn-area">
     	<div class="layout-td">
-        	<a href="javascript:void(0);" class="model-btn-sm plain">获得签单权</a>
+        	<a href="javascript:void(0);" class="model-btn-sm plain tada">获得签单权</a>
         </div>
         <div class="layout-td">
-        	<a href="javascript:void(0);" class="model-btn-sm warn">签单吃米</a>
+        	<a href="javascript:void(0);" class="model-btn-sm warn tada">签单吃米</a>
         </div>
     </section>
-    <div class="fcbk-music-box">
+    <div class="fcbk-music-box rotate">
     	<audio src="" class="glb-full-screen"></audio>
+    	<img class="fcbk-music fly-away" src="../images/fcbk-music.png" alt="音符" width="8" height="8">
+    	<img class="fcbk-music fly-away-10 delay-10" src="../images/fcbk-music.png" alt="音符" width="8" height="8">
+    	<img class="fcbk-music fly-away-20 delay-20" src="../images/fcbk-music.png" alt="音符" width="8" height="8">
+    	<img class="fcbk-music fly-away-201 delay-30" src="../images/fcbk-music.png" alt="音符" width="8" height="8">
     </div>
 </article>
+<script type="application/javascript" src="../js/jquery-3.1.1.js"></script>
+<script type="application/javascript">
+	window.onload=function(){
+		document.querySelector('#loading-1').style.display='none';
+		document.querySelector('.fcbk-jieshaoye').className+=' animation';
+	}
+</script>
 </body>
 </html>
