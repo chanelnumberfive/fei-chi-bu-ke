@@ -1480,8 +1480,8 @@ a.weui_cell:active {
 	animation:20s cubic-bezier(0.5, 0.5, 0.5, 0.5) infinite rotate;
 }
 .animation .tada {
-  -webkit-animation:1s ease tada;
-  animation-name:1s ease tada;
+  -webkit-animation:1s ease both tada;
+  animation-name:1s ease both tada;
 }
 .fcbk-music {
 	position:absolute;
@@ -1850,11 +1850,13 @@ a.weui_cell:active {
 }
 @-webkit-keyframes tada {
   0% {
+	opacity: 1;  
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1)
   }
   10%,
   20% {
+	opacity: 1;  
     -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
     transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg)
   }
@@ -1862,28 +1864,33 @@ a.weui_cell:active {
   50%,
   70%,
   90% {
+	 opacity: 1; 
     -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
     transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)
   }
   40%,
   60%,
   80% {
+	opacity: 1;  
     -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
     transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg)
   }
   100% {
+	opacity: 1;  
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1)
   }
 }
 @keyframes tada {
   0% {
+	opacity: 1;  
     -webkit-transform: scale3d(1, 1, 1);
     -ms-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1)
   }
   10%,
   20% {
+	opacity: 1;  
     -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
     -ms-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
     transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg)
@@ -1892,6 +1899,7 @@ a.weui_cell:active {
   50%,
   70%,
   90% {
+	opacity: 1;  
     -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
     -ms-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
     transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)
@@ -1899,11 +1907,13 @@ a.weui_cell:active {
   40%,
   60%,
   80% {
+	opacity: 1;  
     -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
     -ms-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
     transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg)
   }
   100% {
+	opacity: 1;  
     -webkit-transform: scale3d(1, 1, 1);
     -ms-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1)

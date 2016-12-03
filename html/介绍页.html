@@ -38,10 +38,10 @@
 <link rel="stylesheet" href="../css/fei-chi-bu-ke.css">
 	<style>
 		.model-btn-area .plain{
-			animation-delay:5s !important;			
+			opacity:0;
 		}
 		.model-btn-area .warn{
-			animation-delay:6s !important;			
+			opacity: 0;
 		}
 	</style>
 </head>
@@ -86,10 +86,10 @@
 	</div>
     <section class="layout-tr model-btn-area">
     	<div class="layout-td">
-        	<a href="javascript:void(0);" class="model-btn-sm plain tada">获得签单权</a>
+        	<a href="javascript:void(0);" class="model-btn-sm plain">获得签单权</a>
         </div>
         <div class="layout-td">
-        	<a href="javascript:void(0);" class="model-btn-sm warn tada">签单吃米</a>
+        	<a href="javascript:void(0);" class="model-btn-sm warn">签单吃米</a>
         </div>
     </section>
     <div class="fcbk-music-box rotate">
@@ -100,11 +100,16 @@
     	<img class="fcbk-music fly-away-201 delay-30" src="../images/fcbk-music.png" alt="音符" width="8" height="8">
     </div>
 </article>
-<script type="application/javascript" src="../js/jquery-3.1.1.js"></script>
 <script type="application/javascript">
 	window.onload=function(){
 		document.querySelector('#loading-1').style.display='none';
 		document.querySelector('.fcbk-jieshaoye').className+=' animation';
+		setTimeout(function(){
+			document.querySelector('.model-btn-sm.plain').className+=' tada';
+		},5000);
+		setTimeout(function(){
+			document.querySelector('.model-btn-sm.warn').className+=' tada';
+		},6000);	
 	}
 </script>
 </body>
